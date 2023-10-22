@@ -44,7 +44,6 @@ function initGame(){
 }
 
 
-
 // <button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>
 document.querySelector('.btn-roll').addEventListener('click', function(){
     if (isGameOver === false) {
@@ -72,6 +71,7 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
 
 });
 
+
 // <button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>
 document.querySelector('.btn-hold').addEventListener('click', function(){
     if (isGameOver === false) {
@@ -79,7 +79,7 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
     scores[activePlayer] = scores[activePlayer] + roundScore
     document.getElementById('score-' + activePlayer).textContent = scores[activePlayer]
     
-    if (scores[activePlayer] > 10){
+    if (scores[activePlayer] >= 10){
             // Тоглоомыг дууссан төлөвт шилжүүлнэ
             isGameOver = true;
 
@@ -95,6 +95,11 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
 
 })
 
+
+// <button class="btn-new"><i class="ion-ios-plus-outline"></i>New game</button>
+document.querySelector('.btn-new').addEventListener('click', initGame());
+
+
 function switchToNextPlayer(){
     // Тоглогчийн ээлж солих функц
     roundScore = 0
@@ -109,7 +114,5 @@ function switchToNextPlayer(){
 
 
 
-// <button class="btn-new"><i class="ion-ios-plus-outline"></i>New game</button>
-document.querySelector('.btn-new').addEventListener('click', initGame());
 
 
