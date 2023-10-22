@@ -8,7 +8,8 @@ var scores  = [0, 0]
 var roundScore = 0
 
 // Шооны зургийг үзүүлэх элементийг DOM-c хайж олоож энд хадгалая
-var diceDom = document.querySelector(".dice")
+var diceDom1 = document.querySelector(".dice1")
+var diceDom2 = document.querySelector(".dice2")
 
 // Тоглоом дууссан эсэхийг шалгадаг хувьсагч
 var isGameOver;
@@ -40,21 +41,25 @@ function initGame(){
         document.querySelector('.player-1-panel').classList.remove('winner')
  
         // Шоог түр алга болгоно
-        diceDom.style.display = "none";
+        diceDom1.style.display = "none";
+        diceDom2.style.display = "none";
 }
 
 
 // <button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>
 document.querySelector('.btn-roll').addEventListener('click', function(){
     if (isGameOver === false) {
-            // 1-6 дотор санамсаргүй нэг тоо гаргаж авна.
-    var diceNumber = (Math.floor(Math.random() * 6) + 1);
+        // 1-6 дотор санамсаргүй нэг тоо гаргаж авна.
+        var diceNumber1 = (Math.floor(Math.random() * 6) + 1);
+        var diceNumber2 = (Math.floor(Math.random() * 6) + 1);
 
-    // Шооны зургийг вэб дээр гаргаж ирнэ
-    diceDom.style.display = "block";
+        // Шооны зургийг вэб дээр гаргаж ирнэ
+        diceDom1.style.display = "block";
+        diceDom2.style.display = "block";
 
-    // Буусан тооны дагуу тохирох шооны зургийг вэб дээр гаргаж ирнэ.
-    diceDom.src = 'dice-' + diceNumber + '.png'
+        // Буусан тооны дагуу тохирох шооны зургийг вэб дээр гаргаж ирнэ.
+        diceDom1.src = 'dice-' + diceNumber1 + '.png'
+        diceDom2.src = 'dice-' + diceNumber2 + '.png'
 
     // Буусан тоо нь 1-с ялгаатай бол идэвхтэй тоглогчийн ээлжийн оноог нэмэгдүүлнэ.
     if (diceNumber !== 1){
